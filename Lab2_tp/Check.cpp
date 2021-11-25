@@ -25,5 +25,19 @@ void checkDate(int* D) {
 }
 
 void checkSign(string& str) {
-
+	bool flag = 0;
+	while (true) {
+		for (int i = 0; i < 12; i++) {
+			if (str == SZ[i]) {
+				flag = 1;
+				break;
+			}
+		}
+		if (!flag) {
+			cout << "\nНеверный ввод! Напишите знак зодиака с большой буквы на русском языке.\nПопробуйте снова: ";
+			getline(cin, str);
+		}
+		else
+			break;
+	}
 }
