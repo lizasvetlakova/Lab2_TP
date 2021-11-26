@@ -79,7 +79,7 @@ void List::insert(Sign& val, int index) {
 
 void List::remove(int index) {
 	if (index >= size || index < 0) {
-		throw "\nОшибка: неккоректный индекс!";
+		throw "\nОшибка: неккоректный номер!";
 	}
 	if (size == 1) {
 		this->clear();
@@ -105,7 +105,7 @@ void List::remove(int index) {
 
 Sign& List::operator[] (int index) {
 	if (index >= size || index < 0) {
-		throw "\nОшибка: неккоректный индекс!";
+		throw "\nОшибка: неккоректный номер!";
 	}
 	Element* buf = head;
 	for (int i = 0; i < index; i++)
