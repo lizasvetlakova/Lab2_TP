@@ -46,7 +46,7 @@ int* Sign::get_date() {
 	return date;
 }
 
-void Sign::edit() {
+void Sign::change() {
 	string s, str;
 	int c;
 	bool f = 1;
@@ -89,15 +89,11 @@ void Sign::edit() {
 		}
 	}
 }
-//true - правый старше чем левый, false - правый младше
+//true - левая дата больше чем правая, false - левая меньше
 bool Sign::operator> (const Sign& S) { 
-	if (date[2] < S.date[2]) return true;
-	if (date[2] == S.date[2]) {
-		if (date[1] < S.date[1]) return true;
-		if (date[1] == S.date[1]) {
-			if(date[0] < S.date[0]) return true;
-		}
-	}
+	if (date[2] > S.date[2]) return true;
+	if (date[2] == S.date[2] && date[1] > S.date[1]) return true;
+	if (date[1] == S.date[1] && date[0] > S.date[0]) return true;
 	return false;
 }
 
@@ -105,7 +101,7 @@ bool Sign::operator> (const Sign& S) {
 ostream& operator<< (ostream& stream, const Sign& S) {
 	stream << "Имя и фамилия: " << S.fullname << endl;
 	stream << "Знак зодиака: " << S.sign << endl;
-	stream << "Дата рождения: " << S.date[0] << "." << S.date[1] << "." << S.date[2] << endl;
+	stream << "Дата рождения: " << S.date[0] << "." << S.date[1] << "." << S.date[2] << endl << endl;
 	return stream;
 }
 

@@ -41,3 +41,17 @@ void checkSign(string& str) {
 			break;
 	}
 }
+
+int checkIndex(int s) {
+	int index;
+	while (true) {
+		cin >> index;
+		if (cin.fail() || index >= s || index < 0) {
+			cin.clear();
+			cout << "\nНеккоректный индекс!\nПопробуйте снова: ";
+		}
+		else break;
+		cin.ignore(32767, '\n');
+	}
+	return index;
+}

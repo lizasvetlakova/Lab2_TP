@@ -15,7 +15,7 @@ public:
 	Sign(const Sign& S);
 	~Sign();
 
-	void edit(); //редактирование
+	void change(); //редактирование
 	bool operator> (const Sign& S); //оператор сравнения
 	friend ostream& operator<< (ostream& stream, const Sign& S);//оператор вставки
 
