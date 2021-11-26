@@ -7,7 +7,9 @@ string SZ[12] = {
 	"Козерог", "Водолей", "Рыбы" };
 
 void checkName(string& str){
+	cin.sync(); getline(cin, str);
 	while (str.size() < 1) {
+		cin.clear();
 		cout << "\nНеверный ввод!\nПопробуйте снова: ";
 		getline(cin, str);
     }
@@ -27,31 +29,35 @@ void checkDate(int* D) {
 void checkSign(string& str) {
 	bool flag = 0;
 	while (true) {
+		cin >> str;
 		for (int i = 0; i < 12; i++) {
 			if (str == SZ[i]) {
 				flag = 1;
 				break;
 			}
 		}
-		if (!flag) {
+		if (cin.fail() || !flag) {
+			cin.clear();
 			cout << "\nНеверный ввод! Напишите знак зодиака с большой буквы на русском языке.\nПопробуйте снова: ";
-			getline(cin, str);
 		}
-		else
-			break;
+		else break;
 	}
 }
 
-int checkIndex(int s) {
-	int index;
+int checkIndex(int minInd, int maxInd) {
 	while (true) {
-		cin >> index;
-		if (cin.fail() || index >= s || index < 0) {
+		int Ind;
+		cin >> Ind;
+		if (cin.fail() || Ind < minInd || Ind > maxInd) {
 			cin.clear();
-			cout << "\nНеккоректный индекс!\nПопробуйте снова: ";
+			cout << "\nОшибка: неккоректный номер!\nВведите снова: ";
 		}
-		else break;
+		else {
+			cin.ignore(32767, '\n');
+			cin.clear();
+			return Ind;
+		}
 		cin.ignore(32767, '\n');
 	}
-	return index;
+	
 }

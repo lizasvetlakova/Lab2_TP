@@ -46,6 +46,15 @@ int* Sign::get_date() {
 	return date;
 }
 
+void Sign::dataInput() {
+	cout << endl << "Введите имя и фамилию: ";
+	checkName(fullname);
+	cout << endl << "Введите знак зодиака: ";
+	checkSign(sign);
+	cout << endl << "Введите дату рождения(день месяц год через пробел): ";
+	checkDate(date);
+}
+
 void Sign::change() {
 	string s, str;
 	int c;
@@ -64,12 +73,10 @@ void Sign::change() {
 			switch (c) {
 			case 1:
 				cout << endl << "Введите имя и фамилию: ";
-				cin.get(); getline(cin, fullname);
 				checkName(fullname);
 				break;
 			case 2:
 				cout << endl << "Введите знак зодиака: ";
-				cin.get(); getline(cin, sign);
 				checkSign(sign);
 				break;
 			case 3:
@@ -99,9 +106,8 @@ bool Sign::operator> (const Sign& S) {
 
 
 ostream& operator<< (ostream& stream, const Sign& S) {
-	stream << "Имя и фамилия: " << S.fullname << endl;
-	stream << "Знак зодиака: " << S.sign << endl;
-	stream << "Дата рождения: " << S.date[0] << "." << S.date[1] << "." << S.date[2] << endl << endl;
+	stream << "\n  Имя и фамилия: " << S.fullname;
+	stream << "\n  Знак зодиака: " << S.sign;
+	stream << "\n  Дата рождения: " << S.date[0] << "." << S.date[1] << "." << S.date[2] << endl << endl;
 	return stream;
 }
-

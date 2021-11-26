@@ -7,6 +7,6 @@ using namespace std;
 void checkName(string& str);
 void checkDate(int* D);
 void checkSign(string& str);
-int checkIndex(int s);
+int checkIndex(int minInd, int maxInd);
 
 #endif 

@@ -141,11 +141,13 @@
     <ClCompile Include="Check.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Sign.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Check.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Sign.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

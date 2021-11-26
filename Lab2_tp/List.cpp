@@ -14,6 +14,7 @@ void List::clear() {
 	while (head != NULL) {
 		Element* buf = head;
 		head = buf->next;
+		buf->value->~Sign();
 		delete buf;
 	}
 	size = 0;
@@ -35,7 +36,7 @@ void List::sort() {
 
 void List::insert(Sign& val, int index) {
 	if (index > size || index < 0) {
-		throw "\nОшибка: неккоректный индекс!";
+		throw "\nОшибка: неккоректный номер!";
 	}
 	if (size == 0){ //добавляем самый первый элемент
 		head = new Element;
