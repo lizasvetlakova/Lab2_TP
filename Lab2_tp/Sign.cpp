@@ -51,14 +51,14 @@ void Sign::change() {
 	int c;
 	bool f = 1;
 	cout << "\nВыберите что нужно изменить:\n"
-		<< "1. Имя и фамилия\n2. Знак зодиака\n3. Дата рождения\n"
-		<< "4. Вывод данных на экран\n5. Вернуться в меню\n";
+		<< "1. Имя и фамилия\n2. Знак зодиака и Дата рождения\n"
+		<< "3. Вывод данных на экран\n4. Вернуться в меню\n";
 	while (f) {
 		cout << endl << ">> ";
 		cin >> s;
 		try {
 			c = atoi(s.c_str());
-			if (c < 1 || c > 5) {
+			if (c < 1 || c > 4) {
 				throw "\nОшибка при выборе!\nПопробуйте снова:";
 			}
 			switch (c) {
@@ -68,19 +68,16 @@ void Sign::change() {
 				checkName(fullname);
 				break;
 			case 2:
-				cout << endl << "Введите знак зодиака: ";
-				cin >> sign;
-				checkSign(sign);
+				cout << endl << "Введите дату рождения, а знак зодиака измениться автоматически.";
+				cout << endl << endl << "Введите дату рождения(день месяц год через пробел): ";				
+				cin >> date[0] >> date[1] >> date[2];
+				changeDateSign(date, sign);
+				cout << endl << "Знак зодиака изменен - " << sign;
 				break;
 			case 3:
-				cout << endl << "Введите дату рождения(день месяц год через пробел): ";
-				cin >> date[0] >> date[1] >> date[2];
-				checkDate(date);
-				break;
-			case 4:
 				cout << *this;
 				break;
-			case 5:
+			case 4:
 				f = 0;
 				break;
 			}
@@ -115,6 +112,6 @@ istream& operator>>(istream& in, Sign& s) {
 	checkSign(s.sign);
 	cout << endl << "Введите дату рождения(день месяц год через пробел): ";
 	in >> s.date[0] >> s.date[1] >> s.date[2];
-	checkDate(s.date);
+	checkDate(s.date, s.sign);
 	return in;
 }
