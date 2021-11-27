@@ -6,7 +6,7 @@ void Add(List& list) {
 	cout << endl << "Добавление объекта SIGN на любую позицию\n";
 	cout << "\nВведите номер позиции (от 1 до " << list.get_size() + 1 << "): ";
 	int i = checkIndex(1, list.get_size() + 1) - 1;
-	S->dataInput();
+	cin >> *S;
 	try {
 		list.insert(*S, i);
     }
@@ -81,7 +81,9 @@ void PrintSign(List& list) {
 		string sign;
 		bool flag = 0;
 		cout << endl << "Введите знак зодиака: ";
+		cin >> sign;
 		checkSign(sign);
+		cout << endl;
 		for (int i = 0; i < list.get_size(); i++) {
 			if (list[i].get_sign() == sign) {
 				cout << "#" << i + 1 << list[i];

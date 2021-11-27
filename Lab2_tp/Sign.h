@@ -15,10 +15,10 @@ public:
 	Sign(const Sign& S);
 	~Sign();
 
-	void dataInput();
 	void change(); 
 	bool operator> (const Sign& S); //оператор сравнения
 	friend ostream& operator<< (ostream& stream, const Sign& S); //оператор вставки
+	friend istream& operator>>(istream& in, Sign& s); //оператор извлечения
 
 	void set_fullname(string& n);
 	void set_sign(string& sg);

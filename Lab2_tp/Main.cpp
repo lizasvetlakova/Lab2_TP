@@ -39,6 +39,7 @@ int main(void) {
 			cout << "\nОшибка при выборе! Попробуйте снова.\n";
 			break;
 		}
+		cout << endl;
 		system("pause");
 	}
 
